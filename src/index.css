@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html{
+  font-size:10px;
+}
+
+body{
+  width:100%;
+  position:relative;
+  background: linear-gradient(137.6deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
+  z-index:0;
+}
+
+*{
+  -moz-user-select: none; /* Mozilla Firefox */
+  -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+  -o-user-select: none; /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+  -webkit-tap-highlight-color: transparent;
+}

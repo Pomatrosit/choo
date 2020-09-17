@@ -1,0 +1,116 @@
+.cart-item{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom:1.5rem;
+  width:calc(100% - 3rem);
+  margin-left:1.5rem;
+  margin-right:1.5rem;
+}
+
+.cart-item__left{
+  height:8.5rem;
+  background: linear-gradient(155deg, #282B2F -72.58%, #121416 50.54%);
+  border: 1px solid rgba(34, 34, 34, 0.6);
+  box-sizing: border-box;
+  box-shadow: -4px -4px 16px rgba(232, 237, 243, 0.04), 4px 4px 32px rgba(2, 3, 3, 0.56), inset -16px -6px 80px rgba(248, 249, 249, 0.03);
+  border-radius: 2rem;
+  padding:1rem;
+  width:82%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  position:relative;
+}
+
+.cart-item:nth-child(3n){
+  margin-bottom:0;
+}
+
+
+.cart-item__price-and-count{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.cart-item__title{
+  font-weight: 600;
+  font-size: 14px;
+  color: #ECECEC;
+}
+
+.cart-item__description{
+  font-weight: 500;
+  font-size: 11px;
+  color: #878787;
+}
+
+.cart-item__price{
+  font-weight: 600;
+  font-size: 15px;
+  color: #EFAD2E;
+}
+
+.cart-item__count{
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.cart-item__right{
+  background: linear-gradient(190deg, #17181A -344.87%, #17191C 107.88%);
+  border: 1px solid rgba(34, 34, 34, 0.6);
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.5), -4px -2px 16px rgba(159, 159, 159, 0.02);
+  border-radius: 1.5rem;
+  height:7.5rem;
+  width:calc(15% - 1rem);
+  padding:0.5rem;
+}
+
+.cart-item__plus, .cart-item__minus{
+  height:3rem;
+  border-radius: 16px;
+  font-size:22px;
+  font-weight:600;
+  color:#999;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.cart-item__plus{
+  margin-bottom:1rem;
+  background: linear-gradient(145.5deg, #2D3136 -401.54%, #17191C 154.15%);
+  border: 1px solid rgba(34, 34, 34, 0.8);
+  box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.5), -2px 0px 16px rgba(195, 200, 205, 0.02), inset 2px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 4px rgba(244, 244, 244, 0.02);
+}
+
+.cart-item__cross{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  width:1rem;
+  height:1rem;
+}
+
+.cross__span{
+  width:1px;
+  height:1.5rem;
+  background: #999;
+  border-radius:0.5rem;
+  cursor:pointer;
+  left:45%;
+  top:-25%;
+  position:absolute;
+
+}
+
+.cross__span1{
+  transform:rotate(45deg);
+}
+
+.cross__span2{
+  transform:rotate(-45deg);
+}

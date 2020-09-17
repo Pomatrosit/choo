@@ -1,0 +1,12 @@
+.main{
+  background: linear-gradient(160deg, #353A40 -3.02%, #121416 63.21%);
+  box-shadow: -12px -20px 56px rgba(232, 237, 243, 0.05), 36px 12px 64px rgba(2, 3, 3, 0.7), inset -16px -6px 80px rgba(248, 249, 249, 0.03);
+  border-radius: 2rem;
+  padding:3rem 2rem;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  height:55rem;
+  margin-bottom:5rem;
+  position:relative;
+}
