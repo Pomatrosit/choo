@@ -1,11 +1,21 @@
-import React from "react";
+import React, {useRef} from "react";
 import "./cartItem.css";
 import {removeCartItem, changeCartItemCouner} from "../../redux/actionCreators";
 import {connect} from "react-redux";
 
 const CartItem = ({title, price, description, id, count, removeCartItem}) => {
+
+  const item = useRef();
+
+  const deleteHandler = () => {
+    item.current.style.animation = "hide-item 0.5s ease-in forwards";
+    setTimeout(() => {
+      removeCartItem(id);
+    }, 500);
+  }
+
   return(
-    <div className="cart-item">
+    <div className="cart-item" ref = {item}>
         <div className="cart-item__left">
            <div className="cart-item__title">{title}</div>
            <div className="cart-item__description">{description}</div>
@@ -14,7 +24,7 @@ const CartItem = ({title, price, description, id, count, removeCartItem}) => {
                <div className="cart-item__count">{count} шт</div>
            </div>
 
-           <div className="cart-item__cross" onClick={() => removeCartItem(id)}>
+           <div className="cart-item__cross" onClick={deleteHandler}>
                <div className="cross__span cross__span1"></div>
                <div className="cross__span cross__span2"></div>
            </div>

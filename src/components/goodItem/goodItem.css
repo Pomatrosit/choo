@@ -7,6 +7,7 @@
   border-radius: 20px;
   position:relative;
   cursor:pointer;
+  animation: show-item 0.2s ease-in forwards;
 }
 
 .goods-item:after{

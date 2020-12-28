@@ -33,7 +33,7 @@ const Goods = ({activeCategory, setGoods, goods, activeGoodsPage}) => {
 
 
 
-  const goodsArr = goods.map((good) => {
+  const goodsArr = goods.map((good, index) => {
     return(
       <GoodItem
           title = {good.title}
@@ -41,6 +41,7 @@ const Goods = ({activeCategory, setGoods, goods, activeGoodsPage}) => {
           description={good.description}
           key={good.id}
           id ={good.id}
+          index={index}
       />
     )
   });

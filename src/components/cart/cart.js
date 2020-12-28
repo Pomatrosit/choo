@@ -6,7 +6,8 @@ import CartItem from "../cartItem/cartItem";
 const Cart = ({cartItems}) => {
 
   const cartItemsToHtml = cartItems.map(cartItem=> (
-    <CartItem key={cartItem.key} id={cartItem.id}
+    <CartItem key={cartItem.key}
+              id={cartItem.id}
               goodId={cartItem.goodId}
               count={cartItem.count} title={cartItem.title}
               price={cartItem.price} description={cartItem.description}/>
