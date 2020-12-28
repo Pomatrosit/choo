@@ -21,6 +21,7 @@ body{
   position:relative;
   background: linear-gradient(137.6deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
   z-index:0;
+  min-height:100vh;
 }
 
 *{
