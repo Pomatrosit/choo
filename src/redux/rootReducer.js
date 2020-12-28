@@ -14,7 +14,8 @@ const initialState={
     customizerCounter:1
   },
   cartPrice:0,
-  cartItems:[]
+  cartItems:[],
+  activeCartPage:1,
 }
 
 export default function rootReducer(state = initialState, action){
@@ -220,8 +221,9 @@ export default function rootReducer(state = initialState, action){
 
         const newCartItems = state.cartItems.map(item => item);
         newCartItems.push(cartItem);
+        const currentCartPage = Math.ceil((state.cartItems.length + 1) / 3);
 
-        return {...state, cartItems:newCartItems};
+        return {...state, cartItems:newCartItems, activeCartPage:currentCartPage};
       }
     }
 
@@ -231,13 +233,42 @@ export default function rootReducer(state = initialState, action){
       const newItems = state.cartItems.filter(item => {
         return item.id !== id
       });
+      const currentCartPage = Math.ceil((state.cartItems.length - 1) / 3);
 
+      return {...state, cartItems:newItems, activeCartPage:currentCartPage}
+    }
+
+    case "PLUS_CART_ITEM":{
+      const id = action.payload;
+      const newItems = state.cartItems.map(item => {
+        if (item.id === id) {
+          const onePrice = item.price / item.count;
+          item.count++;
+          item.price = item.count*onePrice;
+        }
+        return item
+      });
       return {...state, cartItems:newItems}
     }
 
+    case "MINUS_CART_ITEM":{
+      const id = action.payload;
+      const newItems = state.cartItems.map(item => {
+        if (item.id === id) {
+          const onePrice = item.price / item.count;
+          if(item.count > 1){
+            item.count--;
+            item.price = item.count*onePrice;
+          }
+        }
+        return item
+      });
+      return {...state, cartItems:newItems}
+    }
 
-
-
+    case "SET_ACTIVE_CART_PAGE":{
+      return {...state, activeCartPage:action.payload}
+    }
 
 
 

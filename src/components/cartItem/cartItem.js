@@ -1,9 +1,9 @@
 import React, {useRef} from "react";
 import "./cartItem.css";
-import {removeCartItem, changeCartItemCouner} from "../../redux/actionCreators";
+import {removeCartItem, plusCartItem, minusCartItem} from "../../redux/actionCreators";
 import {connect} from "react-redux";
 
-const CartItem = ({title, price, description, id, count, removeCartItem}) => {
+const CartItem = ({title, price, description, id, count, removeCartItem, plusCartItem, minusCartItem}) => {
 
   const item = useRef();
 
@@ -48,8 +48,8 @@ const CartItem = ({title, price, description, id, count, removeCartItem}) => {
 
         </div>
         <div className="cart-item__right">
-            <div className="cart-item__plus" onClick = {() => changeCartItemCouner(1)}><span>+</span></div>
-            <div className="cart-item__minus" onClick = {() => changeCartItemCouner(-1)}><span>-</span></div>
+            <div className="cart-item__plus" onClick = {() => plusCartItem(id)}><span>+</span></div>
+            <div className="cart-item__minus" onClick = {() => minusCartItem(id)}><span>-</span></div>
         </div>
     </div>
   )
@@ -58,7 +58,8 @@ const CartItem = ({title, price, description, id, count, removeCartItem}) => {
 const mapDispatchToProps = dispatch => {
   return{
     removeCartItem:id => dispatch(removeCartItem(id)),
-    changeCartItemCouner: num => dispatch(changeCartItemCouner(num))
+    plusCartItem:id => dispatch(plusCartItem(id)),
+    minusCartItem:id => dispatch(minusCartItem(id))
   }
 }
 

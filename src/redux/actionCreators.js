@@ -106,9 +106,23 @@ export function removeCartItem(id){
   }
 }
 
-export function changeCartItemCouner(num){
+export function plusCartItem(id){
   return{
-    type:"CHANGE_CART_ITEM_COUNTER",
-    payload:num
+    type:"PLUS_CART_ITEM",
+    payload:id
+  }
+}
+
+export function minusCartItem(id){
+  return{
+    type:"MINUS_CART_ITEM",
+    payload:id
+  }
+}
+
+export function setActiveCartPage(page){
+  return{
+    type:"SET_ACTIVE_CART_PAGE",
+    payload:page
   }
 }
