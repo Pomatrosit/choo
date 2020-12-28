@@ -14,7 +14,7 @@ const Customizer = ({activeGoodsItem, goods, activeCategory, customizerPrice, cu
 
   for (let good of goods){
     if (activeGoodsItem && good.id === activeGoodsItem.toString()) {
-      imgURL = `./img/${good.img}`;
+      imgURL = `/img/${good.img}`;
       title = good.title;
     }
   }

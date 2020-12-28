@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width:100%;
+  position:relative;
+  background: linear-gradient(137.6deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
+  z-index:0;
+  min-height:100vh;
 }
 
 code {
@@ -16,18 +21,18 @@ html{
   font-size:10px;
 }
 
-body{
-  width:100%;
-  position:relative;
-  background: linear-gradient(137.6deg, #4D535C -7.06%, #171C21 50.9%, #121417 107.91%);
-  z-index:0;
-  min-height:100vh;
-}
-
 *{
   -moz-user-select: none; /* Mozilla Firefox */
   -ms-user-select: none; /* Internet Explorer (не поддерживается) */
   -o-user-select: none; /* Opera Presto (не поддерживается) */
   -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
   -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper{
+  max-width:2000px;
+  margin:0 auto;
+  width:98%;
+  max-width:1400px;
+  font-family:'Montserrat', sans-serif;
 }

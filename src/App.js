@@ -4,15 +4,8 @@ import Main from "./components/main/main";
 
 function App() {
 
-  const styles = {
-    maxWidth:"2000px",
-    margin:"0 auto",
-    width:"90%",
-    fontFamily:"'Montserrat', sans-serif"
-  }
-
   return (
-    <div style = {styles}>
+    <div className="wrapper">
       <Header />
       <Main />
     </div>
