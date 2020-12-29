@@ -233,7 +233,12 @@ export default function rootReducer(state = initialState, action){
       const newItems = state.cartItems.filter(item => {
         return item.id !== id
       });
-      const currentCartPage = Math.ceil((state.cartItems.length - 1) / 3);
+      let currentCartPage = state.activeCartPage;
+      let isLast = false;
+      if (state.cartItems[state.cartItems.length-1].id === id) isLast = true;
+      if (state.cartItems.length % 3 === 1 && isLast){
+        currentCartPage = Math.ceil((state.cartItems.length - 1) / 3);
+      }
 
       return {...state, cartItems:newItems, activeCartPage:currentCartPage}
     }
@@ -268,6 +273,10 @@ export default function rootReducer(state = initialState, action){
 
     case "SET_ACTIVE_CART_PAGE":{
       return {...state, activeCartPage:action.payload}
+    }
+
+    case "CLEAR_CART":{
+      return {...state, cartItems:[]}
     }
 
 

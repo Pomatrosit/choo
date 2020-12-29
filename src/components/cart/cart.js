@@ -3,8 +3,21 @@ import {connect} from "react-redux";
 import "./cart.css";
 import CartItem from "../cartItem/cartItem";
 import Nav from "../nav2/nav2";
+import {clearCart} from "../../redux/actionCreators";
 
-const Cart = ({cartItems, activeCartPage}) => {
+const Cart = ({cartItems, activeCartPage, clearCart}) => {
+
+  const onClearCart = () => {
+    const cartItemsElems = document.querySelectorAll(".cart-item");
+
+    for (let item of cartItemsElems){
+      item.style.animation = "clear-items 0.3s ease-in forwards";
+    }
+
+    setTimeout(() => {
+      clearCart();
+    }, 300);
+  }
 
   const cartItemsToHtml = cartItems.map(cartItem=> (
     <CartItem key={cartItem.key}
@@ -29,7 +42,7 @@ const Cart = ({cartItems, activeCartPage}) => {
 
       {  cartItems.length &&
         <div className="cart__buttons">
-          <div className="cart__btn"><span>Очистить корзину</span></div>
+          <div className="cart__btn" onClick={onClearCart}><span>Очистить корзину</span></div>
           <div className="cart__btn"><span>Оформить заказ</span></div>
         </div>
       }
@@ -46,5 +59,9 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = {
+  clearCart
+}
 
-export default connect(mapStateToProps)(Cart);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

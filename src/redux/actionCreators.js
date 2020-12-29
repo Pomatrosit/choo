@@ -126,3 +126,9 @@ export function setActiveCartPage(page){
     payload:page
   }
 }
+
+export function clearCart(){
+  return{
+    type:"CLEAR_CART"
+  }
+}

@@ -179,3 +179,14 @@
     transform:translateY(0);
   }
 }
+
+@keyframes clear-items{
+  from{
+    transform:translateY(0px);
+    opacity:1;
+  }
+  to{
+    transform:translateY(100px);
+    opacity:0;
+  }
+}

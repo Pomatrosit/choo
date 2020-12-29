@@ -4,7 +4,6 @@ import {removeCartItem, plusCartItem, minusCartItem} from "../../redux/actionCre
 import {connect} from "react-redux";
 
 const CartItem = ({title, price, description, id, count, removeCartItem, plusCartItem, minusCartItem}) => {
-
   const item = useRef();
 
   const deleteHandler = () => {
@@ -49,7 +48,9 @@ const CartItem = ({title, price, description, id, count, removeCartItem, plusCar
         </div>
         <div className="cart-item__right">
             <div className="cart-item__plus" onClick = {() => plusCartItem(id)}><span>+</span></div>
-            <div className="cart-item__minus" onClick = {() => minusCartItem(id)}><span>-</span></div>
+            <div className="cart-item__minus" onClick = {() => {
+              if (count > 1) minusCartItem(id);
+            }}><span>-</span></div>
         </div>
     </div>
   )
