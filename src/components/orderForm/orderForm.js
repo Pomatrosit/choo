@@ -2,10 +2,19 @@ import React from "react";
 import "./orderForm.css";
 import {closeOrderForm} from "../../redux/actionCreators";
 import {connect} from "react-redux";
+import {useRef} from "react";
 
 const OrderForm = ({closeOrderForm}) => {
+
+  const orderRef = useRef();
+
+  const closeHandler = () => {
+    orderRef.current.style.animation = "close-order 0.5s cubic-bezier(.8,.23,.3,.97) forwards";
+    setTimeout(() => closeOrderForm(), 500);
+  }
+
   return(
-    <div className="order">
+    <div className="order" ref = { orderRef }>
       <h3 className="order-caption">Оформление заказа</h3>
 
        <form className="order-form">
@@ -27,8 +36,8 @@ const OrderForm = ({closeOrderForm}) => {
           </div>
        </form>
 
-       <div className="cart__buttons">
-         <div className="cart__btn" onClick = {closeOrderForm}><span>Вернуться в корзину</span></div>
+       <div className="cart__buttons order-buttons">
+         <div className="cart__btn" onClick = {closeHandler}><span>Вернуться в корзину</span></div>
          <div className="cart__btn"><span>Отправить</span></div>
        </div>
     </div>

@@ -12,7 +12,9 @@
   display:flex;
   flex-direction:column;
   transition:0.7s;
+  transform:translateX(100%);
   transition-timing-function:cubic-bezier(.66,.12,.36,.91);
+  animation:open-order 0.5s cubic-bezier(.8,.23,.3,.97) forwards;
 }
 .order-caption{
   font-weight: 600;
@@ -102,4 +104,26 @@
   position:absolute;
   margin-top:1rem;
   margin-left:0.5rem;
+}
+
+.order-buttons{
+  animation:none!important;
+}
+
+@keyframes open-order{
+  from{
+    transform:translateX(100%);
+  }
+  to{
+    transform:translateX(0);
+  }
+}
+
+@keyframes close-order{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-100%);
+  }
 }
