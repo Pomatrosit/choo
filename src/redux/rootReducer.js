@@ -16,6 +16,7 @@ const initialState={
   cartPrice:0,
   cartItems:[],
   activeCartPage:1,
+  isOrderFormShowed:false
 }
 
 export default function rootReducer(state = initialState, action){
@@ -279,7 +280,13 @@ export default function rootReducer(state = initialState, action){
       return {...state, cartItems:[]}
     }
 
+    case "SHOW_ORDER_FORM":{
+      return {...state, isOrderFormShowed:true}
+    }
 
+    case "CLOSE_ORDER_FORM":{
+      return {...state, isOrderFormShowed:false}
+    }
 
 
 

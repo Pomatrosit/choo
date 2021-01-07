@@ -132,3 +132,15 @@ export function clearCart(){
     type:"CLEAR_CART"
   }
 }
+
+export function showOrderForm(){
+  return{
+    type:"SHOW_ORDER_FORM"
+  }
+}
+
+export function closeOrderForm(){
+  return{
+    type:"CLOSE_ORDER_FORM"
+  }
+}

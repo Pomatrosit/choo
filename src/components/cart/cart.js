@@ -3,9 +3,10 @@ import {connect} from "react-redux";
 import "./cart.css";
 import CartItem from "../cartItem/cartItem";
 import Nav from "../nav2/nav2";
-import {clearCart} from "../../redux/actionCreators";
+import {clearCart, showOrderForm} from "../../redux/actionCreators";
+import OrderForm from "../orderForm/orderForm";
 
-const Cart = ({cartItems, activeCartPage, clearCart}) => {
+const Cart = ({cartItems, activeCartPage, clearCart, showOrderForm, isOrderFormShowed}) => {
 
   const onClearCart = () => {
     const cartItemsElems = document.querySelectorAll(".cart-item");
@@ -34,17 +35,23 @@ const Cart = ({cartItems, activeCartPage, clearCart}) => {
 
   return(
     <div className="cart">
+
       <p className="cart__price">Ваш заказ | Итого: {cartPrice}&nbsp;₽</p>
+
       <div className="cart__items" style={{transform:`translateX(-${(activeCartPage-1)}00%)`}}>
           {cartItemsToHtml}
       </div>
+
       <Nav />
 
-      {  cartItems.length &&
+      {  cartItems.length > 0 &&
         <div className="cart__buttons">
           <div className="cart__btn" onClick={onClearCart}><span>Очистить корзину</span></div>
-          <div className="cart__btn"><span>Оформить заказ</span></div>
+          <div className="cart__btn" onClick={showOrderForm}><span>Оформить заказ</span></div>
         </div>
+      }
+      {
+        isOrderFormShowed && <OrderForm />
       }
 
 
@@ -55,12 +62,14 @@ const Cart = ({cartItems, activeCartPage, clearCart}) => {
 const mapStateToProps = state => {
   return{
     cartItems:state.cartItems,
-    activeCartPage:state.activeCartPage
+    activeCartPage:state.activeCartPage,
+    isOrderFormShowed:state.isOrderFormShowed
   }
 }
 
 const mapDispatchToProps = {
-  clearCart
+  clearCart,
+  showOrderForm
 }
 
 
