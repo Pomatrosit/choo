@@ -42,8 +42,17 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
+    font-family:'Montserrat', sans-serif;
 }
 
 input:-webkit-autofill {
     -webkit-text-fill-color: #eee !important;
+    font-family:'Montserrat', sans-serif;
+}
+
+footer{
+  font-size: 16px;
+  line-height: 100%;
+  color: #F2F2F2;
+  margin-bottom: 50px;
 }

@@ -12,6 +12,12 @@ const GoodItem = props => {
     props.setActiveGoodsItem(props.id);
     props.setCustomizerPrice(props.price);
     props.resetCustomizer();
+    if (document.documentElement.clientWidth <=1100){
+      window.scrollTo({
+        top: 920,
+        behavior: "smooth"
+    });
+    }
   }
 
   return(

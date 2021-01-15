@@ -9,6 +9,7 @@
   padding:1rem 1.5rem;
   overflow:hidden;
   z-index:5;
+  order:4;
 }
 
 .cart__price{
@@ -94,5 +95,14 @@
 @media (hover:hover){
   .cart__btn:not(.cart__btn--active):hover:after{
     opacity:1;
+  }
+}
+
+@media screen and (max-width:1100px){
+  .cart{
+    position:relative;
+    margin:40px 20px 0 20px;
+    width:100%;
+    box-sizing:border-box;
   }
 }
